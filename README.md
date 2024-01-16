@@ -1,6 +1,31 @@
+# Getting the files through Github
+
+Installing Git
+https://github.com/git-guides/install-git
+
+If you are unfamiliar with git then watch the following tutorial
+https://www.youtube.com/watch?v=tRZGeaHPoaw&ab_channel=KevinStratvert
+
+for getting the files locally
+```cmd
+mkdir cs4969
+git clone https://github.com/pavitramehra/cs6964.git
+```
+
 # What is the docker in simple words?
 
 Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.
+
+# Installing docker 
+Use the below link for installing docker on your desktop
+https://docs.docker.com/get-docker/
+
+Refer to the following video if required
+
+Windows
+https://www.youtube.com/watch?v=XgRGI0Pw2mM&ab_channel=ProgrammingKnowledge2
+Mac
+https://www.youtube.com/watch?v=-y1BmDbcaEU&ab_channel=CodeWithArjun
 
 To check if docker is running, type in the terminal
 
@@ -15,6 +40,8 @@ Above commands outputs all of the containers which are launched right now.
 If you see just a header shown above - that's fine. It means you have installed docker correctly, just no containers are running right now.
 
 To run the container and up your juptyter notebook we will use docker compose command.
+
+
 # Docker Compose
 
 The docker compose file is defined in the following way.
@@ -79,6 +106,8 @@ After running docker compose command you will see a url as shown in the image be
 After pasting the url in the browser you will be able to see your jupyter notebooks like this
 ![jupyter notebook](./ss2.png)
 
+you can also use VScode for running you jupyter notebook
+
 
 
 # Connect the Databse in Jupyter notebook
@@ -121,7 +150,7 @@ For Installing and Setting up PostgreSQL on local machine you can follow the lin
 Download Postgres from the official website given below:
 https://www.postgresql.org/download/
 
-For Windows 
+For Windows:
 https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql/
 
 Video: https://www.youtube.com/watch?v=IYHx0ovvxPs&ab_channel=ProgrammingKnowledge
@@ -141,7 +170,21 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/16/bin
 
 Creating a python environment
 
-Setup python environment by installing ananconda or python. Refer to the links below.
+Setup python environment by anaconda.
 https://docs.anaconda.com/free/anaconda/install/
+
+Open jupyter notebook in the Lab-1 folder using anaconda.
+for connecting to the db enter your db credentials.
+
+# Connect the Databse in Jupyter notebook
+
+Open/create the notebook in your containerand execute the following script:
+
+
+```python
+import sqlalchemy
+%load_ext sql
+%sql postgresql://username:password@localhost:5432/dbname
+```
 
 
