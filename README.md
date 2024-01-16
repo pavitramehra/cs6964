@@ -15,19 +15,22 @@ cd cs4969
 git clone https://github.com/pavitramehra/cs6964.git
 ```
 
-# What is the docker in simple words?
+# What is Docker in simple words?
 
 Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.
 
 # Installing docker 
 Use the below link for installing docker on your desktop
+
 https://docs.docker.com/get-docker/
 
 Refer to the following video if required
 
 Windows
+
 https://www.youtube.com/watch?v=XgRGI0Pw2mM&ab_channel=ProgrammingKnowledge2
 Mac
+
 https://www.youtube.com/watch?v=-y1BmDbcaEU&ab_channel=CodeWithArjun
 
 To check if docker is running, type in the terminal
@@ -161,7 +164,7 @@ Video: https://www.youtube.com/watch?v=IYHx0ovvxPs&ab_channel=ProgrammingKnowled
 For Macos:
 
 Install Postgres app.
-Follow the Instructions mentioned in the link below.
+Follow the Instructions mentioned in the link.
 https://postgresapp.com/
 
 If you dont have admin privilidges for your desktop then for adding path
@@ -181,7 +184,7 @@ for connecting to the db enter your db credentials.
 
 # Connect the Databse in Jupyter notebook
 
-Open/create the notebook in your containerand execute the following script:
+Open/create the notebook in your container and execute the following script by entering your db credentials.
 
 
 ```python
