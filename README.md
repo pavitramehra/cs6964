@@ -8,9 +8,10 @@ If you are unfamiliar with git then watch the following tutorial
 
 https://www.youtube.com/watch?v=tRZGeaHPoaw&ab_channel=KevinStratvert
 
-for getting the files locally
+After setting up git locally for getting the files use the following commands
 ```cmd
 mkdir cs4969
+cd cs4969
 git clone https://github.com/pavitramehra/cs6964.git
 ```
 
