@@ -1,9 +1,11 @@
 # Getting the files through Github
 
 Installing Git
+
 https://github.com/git-guides/install-git
 
 If you are unfamiliar with git then watch the following tutorial
+
 https://www.youtube.com/watch?v=tRZGeaHPoaw&ab_channel=KevinStratvert
 
 for getting the files locally
