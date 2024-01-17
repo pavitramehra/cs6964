@@ -41,11 +41,11 @@ docker ps
 
 Above commands outputs all of the containers which are launched right now.
 
-![](./img/01.png)
+![](01.png)
 
 If you see just a header shown above - that's fine. It means you have installed docker correctly, just no containers are running right now.
 
-To run the container and up your juptyter notebook we will use docker compose command.
+To run the container and up your jupyter notebook we will use docker compose command.
 
 
 # Docker Compose
@@ -116,7 +116,7 @@ you can also use VScode for running you jupyter notebook
 
 
 
-# Connect the Databse in Jupyter notebook
+# Connect the Database in Jupyter notebook
 
 Open/create the notebook in your container and enter and execute the following script:
 
@@ -130,7 +130,7 @@ import sqlalchemy
 
 # How to get in your container 
 
-While your container is running, open second terminal and enter the followng commnand:
+While your container is running, open second terminal and enter the following command:
 
 
 
@@ -167,7 +167,7 @@ Install Postgres app.
 Follow the Instructions mentioned in the link.
 https://postgresapp.com/
 
-If you dont have admin privilidges for your desktop then for adding path
+If you dont have admin priviliges for your desktop then for adding path
 create a .zshrc file if not present and add this path. After that you should be able to run psql from your terminal.
 ```cmd
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/16/bin
