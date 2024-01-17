@@ -7,8 +7,7 @@ RUN pip install pandas sqlalchemy ipython-sql numpy psycopg2-binary
 WORKDIR /lab1
 
 # Copy the Jupyter notebook file to the container
-COPY test.ipynb .
-COPY Lecture_2.ipynb .
+COPY lab.ipynb .
 
 # Expose the port Jupyter runs on
 EXPOSE 8888
