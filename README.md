@@ -3,7 +3,7 @@
 First, you need to install git:
 https://github.com/git-guides/install-git
 
-To get the lab1 files, use the following commands
+To get the lab1 files, use the following command
 
 
 ```cd cs6969
@@ -13,7 +13,9 @@ git clone https://github.com/pavitramehra/cs6964_lab1.git
 
 # What is Docker in simple words?
 
-Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.
+Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. 
+
+The Docker container will contain all the dependencies and libraries needed for the lab. This will make your life easier as you won't need to install any packages/libraries yourself, you just need to launch the container and everything will be set up for you. 
 
 # Installing docker 
 Use the below link for installing docker on your desktop
@@ -38,7 +40,7 @@ The above command lists all of the containers (and their IDs) that are currently
 
 If you see just a header shown above - that's fine. It means you have installed docker correctly. It just means there are no containers running right now.
 
-To run the container and launch your jupyter notebook we will use the docker compose command as shown next.
+To run the container and launch your jupyter notebook we will use the *docker-compose** command as shown next.
 
 
 # Docker Compose
@@ -72,7 +74,7 @@ volumes:
   pgdata:
 ```
 
-The **Dockerfile** will include python libraries and other configurations :
+The **Dockerfile** includes commands to install python libraries as well as any other commands we need to run to set up the container (you don't need to change anything):
 
 ```
 # Jupyter Dockerfile
@@ -112,11 +114,9 @@ After pasting the url in the browser you will get see the files in your lab file
 
 
 
-# Connect the Database in Jupyter notebook
+# Testing the Database connection in Jupyter notebook
 
-Open/create the notebook in your container and enter and execute the following script:
-
-
+Open/create a notebook in your container and enter and execute the following script in a code cell:
 
 ```python
 import sqlalchemy
@@ -124,7 +124,9 @@ import sqlalchemy
 %sql postgresql://postgres:postgres@db:5432/postgres
 ```
 
-# How to get in your container 
+If your docker container is running, the above command should not result in an error.
+
+# How to get into your container 
 
 To access your running container, especially if you want to install libraries, you can use the Docker exec command. This command allows you to run a command in a running container. 
 
@@ -185,5 +187,3 @@ import sqlalchemy
 %load_ext sql
 %sql postgresql://username:password@localhost:5432/dbname
 ```
-
-
