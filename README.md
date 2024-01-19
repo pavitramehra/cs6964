@@ -55,17 +55,21 @@ It includes the jupyter notebook and postgres db with credentials
 
 ```yml
 version: "3.1"
+
 services:
   jupyter:
     build:
-      context: ./
+      context: ./jupyter
       dockerfile: Dockerfile
     volumes:
-      - ./:/lab1
+      - ./jupyter:/lab1
     ports:
       - 8888:8888
-  db:
-    image: postgres:latest
+
+  postgres:
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -75,11 +79,13 @@ services:
       POSTGRES_DB: postgres
     ports:
       - 5432:5432
+
 volumes:
   pgdata:
+
 ```
 
-The **Dockerfile** will include python libraries and other configurations :
+There are two **Dockerfile** for jupyter notebook and postgres given below:
 
 ```
 
@@ -96,6 +102,20 @@ COPY test.ipynb .
 
 # Expose the port Jupyter runs on
 EXPOSE 8888
+
+```
+
+```
+
+# PostgreSQL Dockerfile
+
+FROM postgres:latest
+
+# Create a directory to store initialization scripts
+RUN mkdir -p /docker-entrypoint-initdb.d
+
+# Copy the init.sql script and the contents of the tmp directory
+COPY tmp /tmp
 
 ```
 
