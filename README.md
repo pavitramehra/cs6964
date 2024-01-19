@@ -150,14 +150,15 @@ docker exec -it <container_name_or_id> /bin/bash
 ```
 
 
-# Setting your environment without using Docker
+# [Not recommended] Setting your environment without using Docker
 
-Although not recommended, you may also choose to install your environment locally.
+Although not recommended, you may also choose to install your environment locally instead of using Docker. You will need to do three things:
 
-- Installing and setting up PostgreSQL
-- Creating a Python environment
+- Install and set up PostgreSQL
+- Install Python 3.8
+- Install Anaconda3 to run the Jupyter environment
 
-For Installing and Setting up PostgreSQL on local machine you can follow the links below
+For Installing and Setting up PostgreSQL on your local machine you can follow the links below
 
 Download Postgres from the official website below:
 https://www.postgresql.org/download/
@@ -181,7 +182,7 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/16/bin
 
 Creating a python environment
 
-Setup python environment by anaconda.
+Setup python environment using Anaconda:
 https://docs.anaconda.com/free/anaconda/install/
 
-Open jupyter notebooks in the jupyter/ folder using anaconda.
+Then, open the jupyter notebooks in the jupyter/ folder after launching your Jupyter environemnt using anaconda.
