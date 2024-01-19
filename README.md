@@ -127,13 +127,13 @@ If your docker container is running, the above command should not result in an e
 
 # Starting lab1
 
-### Lab1 tutorial notebook
+### Lab 1 tutorial notebook
 
 First, we strongly recommend you review and re-run the tutorial notebook *lab1_tutorial.ipynb*. This will get you familiar with most of the basic SQL and Pandas operations. 
 
-### Lab1 questions notebook
+### Lab 1 questions notebook
 
-After you review the tutorial notebook, go to the lab1 questions notebook *lab1_notebook.ipynb*. Go carefully over the questions and write your answers in the provided cells.
+After you review the notebook *lab1_tutorial.ipynb*, go to the lab 1 questions notebook *lab1_notebook.ipynb*. Go carefully over the questions and write your answers in the provided cells.
 
 # How to get into your container 
 
