@@ -3,10 +3,10 @@
 First, you need to install git:
 https://github.com/git-guides/install-git
 
-After setting up git locally for getting the files use the following commands
+To get the lab1 files, use the following commands
 
 
-```cd cs4969
+```cd cs6969
 git clone https://github.com/pavitramehra/cs6964_lab1.git
 ```
 
