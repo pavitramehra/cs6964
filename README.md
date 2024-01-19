@@ -125,7 +125,7 @@ import sqlalchemy
 
 If your docker container is running, the above command should not result in an error.
 
-# Starting lab1
+# Starting lab 1
 
 ### Lab 1 tutorial notebook
 
