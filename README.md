@@ -125,6 +125,16 @@ import sqlalchemy
 
 If your docker container is running, the above command should not result in an error.
 
+# Starting lab1
+
+### Lab1 tutorial notebook
+
+First, we strongly recommend you review and re-run the tutorial notebook *lab1_tutorial.ipynb*. This will get you familiar with most of the basic SQL and Pandas operations. 
+
+### Lab1 questions notebook
+
+After you review the tutorial notebook, go to the lab1 questions notebook *lab1_notebook.ipynb*. Go carefully over the questions and write your answers in the provided cells.
+
 # How to get into your container 
 
 To access your running container, especially if you want to install libraries, you can use the Docker exec command. This command allows you to run a command in a running container. 
