@@ -12,8 +12,28 @@ After setting up git locally for getting the files use the following commands
 ```cmd
 mkdir cs4969
 cd cs4969
-git clone https://github.com/pavitramehra/cs6964.git
+git clone https://github.com/pavitramehra/cs6964_lab1.git
 ```
+# Folder Structure
+
+The folder structure looks like below containing csv files and the configuration files. You have to work on the file lab1_notebook.ipynb inside the jupyter folder.
+```
+project/
+|-- jupyter/
+|   |-- Dockerfile
+|   |-- lab1_notebook.ipynb
+|   |-- lab1_tutorial.ipynb
+|   `-- tmp/
+|       `-- IMDB-movies.csv
+|-- postgres/
+|   |-- Dockerfile
+|   |-- init.sql
+|   `-- tmp/
+|       `-- IMDB-movies.csv
+|-- docker-compose.yml
+
+```
+
 
 # What is Docker in simple words?
 
