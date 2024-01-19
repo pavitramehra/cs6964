@@ -176,14 +176,3 @@ Setup python environment by anaconda.
 https://docs.anaconda.com/free/anaconda/install/
 
 Open jupyter notebooks in the jupyter/ folder using anaconda.
-
-# Connect the Databse in Jupyter notebook
-
-Open/create the notebook in your container and execute the following script by entering your db credentials.
-
-
-```python
-import sqlalchemy
-%load_ext sql
-%sql postgresql://username:password@localhost:5432/dbname
-```
