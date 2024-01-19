@@ -111,6 +111,9 @@ After running docker compose command you will see a url as shown in the image be
 
 After pasting the url in the browser you will get see the files in your lab file from within the Jupyter environemnt. The notebooks have extensions ".ipynb"
 
+# If this is your first time using Jupyter notebooks
+If this is your first time using Jupyter notebooks, you may refer to this video tutorial to get started:
+https://www.youtube.com/watch?v=HW29067qVWk
 
 
 # Testing the Database connection in Jupyter notebook
