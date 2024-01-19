@@ -5,9 +5,9 @@ https://github.com/git-guides/install-git
 
 To get the lab1 files, use the following command
 
-
-```cd cs6969
+```bash
 git clone https://github.com/pavitramehra/cs6964_lab1.git
+cd cs6964_lab1
 ```
 
 
@@ -40,8 +40,7 @@ The above command lists all of the containers (and their IDs) that are currently
 
 If you see just a header shown above - that's fine. It means you have installed docker correctly. It just means there are no containers running right now.
 
-To run the container and launch your jupyter notebook we will use the *docker-compose** command as shown next.
-
+To run the container and launch your jupyter notebook we will use the *docker-compose* command as shown next.
 
 # Docker Compose
 
