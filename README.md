@@ -1,37 +1,13 @@
-# Getting the files through Github
+# Getting the lab 1 files
 
-Installing Git
-
+First, you need to install git:
 https://github.com/git-guides/install-git
 
-If you are unfamiliar with git then watch the following tutorial
-
-https://www.youtube.com/watch?v=tRZGeaHPoaw&ab_channel=KevinStratvert
-
 After setting up git locally for getting the files use the following commands
-```cmd
-mkdir cs4969
-cd cs4969
+
+
+```cd cs4969
 git clone https://github.com/pavitramehra/cs6964_lab1.git
-```
-# Folder Structure
-
-The folder structure looks like below containing csv files and the configuration files. You have to work on the file lab1_notebook.ipynb inside the jupyter folder.
-```
-project/
-|-- jupyter/
-|   |-- Dockerfile
-|   |-- lab1_notebook.ipynb
-|   |-- lab1_tutorial.ipynb
-|   `-- tmp/
-|       `-- IMDB-movies.csv
-|-- postgres/
-|   |-- Dockerfile
-|   |-- init.sql
-|   `-- tmp/
-|       `-- IMDB-movies.csv
-|-- docker-compose.yml
-
 ```
 
 
@@ -44,14 +20,11 @@ Use the below link for installing docker on your desktop
 
 https://docs.docker.com/get-docker/
 
-Refer to the following video if required
 
-Windows
+For a quick start guide, refer to:
+https://docs.docker.com/get-started/
 
-https://www.youtube.com/watch?v=XgRGI0Pw2mM&ab_channel=ProgrammingKnowledge2
-Mac
 
-https://www.youtube.com/watch?v=-y1BmDbcaEU&ab_channel=CodeWithArjun
 
 To check if docker is running, type in the terminal
 
@@ -59,37 +32,33 @@ To check if docker is running, type in the terminal
 docker ps
 ```
 
-Above commands outputs all of the containers which are launched right now.
+The above command lists all of the containers (and their IDs) that are currently running.
 
 ![](01.png)
 
-If you see just a header shown above - that's fine. It means you have installed docker correctly, just no containers are running right now.
+If you see just a header shown above - that's fine. It means you have installed docker correctly. It just means there are no containers running right now.
 
-To run the container and up your jupyter notebook we will use docker compose command.
+To run the container and launch your jupyter notebook we will use the docker compose command as shown next.
 
 
 # Docker Compose
 
-The docker compose file is defined in the following way.
-It includes the jupyter notebook and postgres db with credentials
+The docker-compose.yml file contains all the info needed to launch Postgres and the Jupyter notebook environments.
+The Postgres credentials are also specified in that file,
 
 ```yml
 version: "3.1"
-
 services:
   jupyter:
     build:
-      context: ./jupyter
+      context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./jupyter:/lab1
+      - ./:/lab1
     ports:
       - 8888:8888
-
-  postgres:
-    build:
-      context: ./postgres
-      dockerfile: Dockerfile
+  db:
+    image: postgres:latest
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -99,60 +68,47 @@ services:
       POSTGRES_DB: postgres
     ports:
       - 5432:5432
-
 volumes:
   pgdata:
-
 ```
 
-There are two **Dockerfile** for jupyter notebook and postgres given below:
+The **Dockerfile** will include python libraries and other configurations :
 
 ```
+# Jupyter Dockerfile
 
-# Use an official Jupyter image with Python as the base image
 FROM jupyter/base-notebook:python-3.8
-# Additional instructions to install required Python packages
+
 RUN pip install pandas sqlalchemy ipython-sql numpy psycopg2-binary
 
-# Set the working directory in the container
 WORKDIR /lab1
 
-# Copy the Jupyter notebook file to the container
-COPY test.ipynb .
+COPY lab1_notebook.ipynb .
+COPY lab1_tutorial.ipynb .
 
-# Expose the port Jupyter runs on
+# Create a tmp directory within the container
+RUN mkdir tmp
+
+COPY tmp/ tmp/
+
 EXPOSE 8888
 
 ```
 
-```
 
-# PostgreSQL Dockerfile
+# Launching the Docker container
 
-FROM postgres:latest
-
-# Create a directory to store initialization scripts
-RUN mkdir -p /docker-entrypoint-initdb.d
-
-# Copy the init.sql script and the contents of the tmp directory
-COPY tmp /tmp
-
-```
-
-
-To launch the container:(run this from the location where your docker-compose file is present)
+From lab directory, run this command (where your docker-compose.yml file is located):
 
 ```cmd
 docker-compose up --build
 ```
+
 # Opening Jupyter notebook
 After running docker compose command you will see a url as shown in the image below. Paste the url in web browser or paste it after selecting jupyter kernel in vscode to open the jupyter notebook
 ![notebook url](./ss1.png)
 
-After pasting the url in the browser you will be able to see your jupyter notebooks like this
-![jupyter notebook](./ss2.png)
-
-you can also use VScode for running you jupyter notebook
+After pasting the url in the browser you will get see the files in your lab file from within the Jupyter environemnt. The notebooks have extensions ".ipynb"
 
 
 
@@ -170,45 +126,43 @@ import sqlalchemy
 
 # How to get in your container 
 
-While your container is running, open second terminal and enter the following command:
+To access your running container, especially if you want to install libraries, you can use the Docker exec command. This command allows you to run a command in a running container. 
 
+To interact with your running Docker container, such as for installing libraries or managing data, follow these steps:
 
+Open a new terminal window if you don’t have one already open.
 
-What if i want to get into my container. For example, to install libraries to work with data, databases.
-
-You need to enter in the second terminal(if you closed it after the previous command, just open the new one):
+Use the Docker exec command to access the container. The general format of the command is:
 
 ```cmd
-docker exec -it <mycontainer> bash
+docker exec -it <container_name_or_id> /bin/bash
 ```
 
-```<mycontainer>``` is you ***container id***
 
-# Without using Docker
+# Setting your environment without using Docker
 
-Students who are facing difficulty in installing docker can use there local setup which will involve the following steps
+Although not recommended, you may also choose to install your environment locally.
 
 - Installing and setting up PostgreSQL
-- Creating a python environment
+- Creating a Python environment
 
 For Installing and Setting up PostgreSQL on local machine you can follow the links below
 
-Download Postgres from the official website given below:
+Download Postgres from the official website below:
 https://www.postgresql.org/download/
 
 For Windows:
 https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql/
 
-Video: https://www.youtube.com/watch?v=IYHx0ovvxPs&ab_channel=ProgrammingKnowledge
 
-For Macos:
+For MacOS:
 
-Install Postgres app.
-Follow the Instructions mentioned in the link.
-https://postgresapp.com/
+Follow the Instructions in:
+https://www.devart.com/dbforge/postgresql/how-to-install-postgresql-on-macos/
 
-If you dont have admin priviliges for your desktop then for adding path
-create a .zshrc file if not present and add this path. After that you should be able to run psql from your terminal.
+
+If you don't have admin privileges on your computer and need to run PostgreSQL (psql) from the terminal, you can add its path to your shell configuration. Assuming you're using the Zsh shell, then you need to add the following line to the file ~/.zshrc:
+
 ```cmd
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/16/bin
 ```
@@ -219,8 +173,7 @@ Creating a python environment
 Setup python environment by anaconda.
 https://docs.anaconda.com/free/anaconda/install/
 
-Open jupyter notebook in the Lab-1 folder using anaconda.
-for connecting to the db enter your db credentials.
+Open jupyter notebooks in the jupyter/ folder using anaconda.
 
 # Connect the Databse in Jupyter notebook
 
